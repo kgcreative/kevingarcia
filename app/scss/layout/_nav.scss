@@ -5,6 +5,7 @@ body header > nav {
   display: inline-block;
   width: calc(100% - 11em);
   text-align: right;
+  float: right;
 
   @include grid-media($media-md-max, $media-lg-only, $media-xl, $media-print) {
     padding-right: _retrieve-neat-setting($neat-grid, gutter);
