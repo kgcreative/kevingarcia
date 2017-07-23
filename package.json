@@ -21,7 +21,6 @@
     "bourbon-neat": "^2.1.0",
     "brunch": "2.8.2",
     "brunch-static": "^1.2.1",
-    "clean-css-brunch": "^2",
     "coffee-script": "^1.12.7",
     "coffee-script-brunch": "^2.10.2",
     "decanter": "github:su-sws/decanter#1.0.0-alpha2",
