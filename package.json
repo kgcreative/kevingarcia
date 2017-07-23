@@ -4,7 +4,7 @@
   "private": true,
   "author": "Kevin Garcia",
   "version": "0.0.1",
-  "repository": "",
+  "repository": "https://github.com/kgcreative/kevingarcia.git",
   "scripts": {
     "start": "brunch watch --server --port 3334",
     "build": "brunch build --production"
