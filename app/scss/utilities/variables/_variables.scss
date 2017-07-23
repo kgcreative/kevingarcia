@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+
+@import
+  'breakpoints'
+, 'containers'
+, 'fonts'
+, 'typography'
+, 'vertical-rhythm'
+, 'borders'
+, 'base/base--body'
+, 'base/base--typography'
+, 'base/base--lists'
+;
+
+// Nav
+// -------------------------------------------------------
+$primary-nav_background-color:              color(item-background);
+$primary-nav_background-hover-color:        color(reverse-text--active);
+
+$primary-nav_foreground-color:              color(black);
+$primary-nav_foreground-active-color:       color(dark-red);
+$primary-nav_foreground-hover-color:        color(bright-red);
+
+$primary-nav_border-color: 									color(border);
+$primary-nav_current-border-color: 					color(bright-red);
+
+// -----------------------------------------------------------------------------
+// 6. Components
+// -----------------------------------------------------------------------------
+$breakpoint-helper: true;
+// $include-grid: true;

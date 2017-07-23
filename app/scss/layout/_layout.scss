@@ -1,0 +1,127 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// z-index
+// ---------------------------------------------------------------------------------------------------------------------
+body > header                                     {   z-index: 100;   }
+body > main                                       {   z-index: 1;     }
+body > footer                                     {   z-index: 100;   }
+#skiplinks                                        {   z-index: 200;   }
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Flexbox visual order
+// --------------------------------------------------------------------------------------------------------------------
+#skiplinks                                        {   order: -51;     }
+body > header                                     {   order: -50;     }
+body > #main, body > main                         {   order: 1;       }
+body > footer                                     {   order: 50;      }
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Grid Setup
+// ---------------------------------------------------------------------------------------------------------------------
+
+body {
+  @supports (display: flex) and (not (display: grid)) {
+    display: flex;
+  }
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: unquote("[full-start] 1em [content-start] 1fr [content-end] 1em [full-end]");
+    grid-template-rows: unquote("[head-start] auto [content-start] 1fr [content-end] auto [footer-end]");
+
+    @include grid-media($media-md-max, $media-lg-only, $media-xl, $media-print) {
+      $_gutter: _retrieve-neat-setting($neat-grid, gutter);
+      grid-column-gap: $_gutter;
+      grid-row-gap: $_gutter * 2;
+    }
+
+    @include grid-media($media-lg) {
+      grid-template-columns: unquote("[full-start] auto [content-start] 1fr [content-end] auto [full-end]");
+    }
+
+    @media print {
+      grid-template-columns: unquote("[full-start] .25in [content-start] 1fr [content-end] .25in [full-end]");
+      max-width: none;
+    }
+
+  }
+
+  @media print {
+    margin: 0 .25in 1in;
+  }
+}
+
+body > header {
+  @supports (display: grid) {
+    grid-column-start: full-start;
+    grid-column-end: full-end;
+    grid-row-start: head-start;
+    grid-row-end: content-start;
+
+    @media print {
+      padding-bottom: .125in;
+      grid-column-start: content-start;
+      grid-column-end: content-end;
+    }
+  }
+  padding-top: 1em;
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+body > main {
+  @include responsive-container($content-container);
+
+  @supports (display: grid) {
+    padding-left: 0;
+    padding-right: 0;
+    grid-column-start: content-start;
+    grid-column-end: content-end;
+    grid-row-start: content-start;
+    grid-row-end: content-end;
+    justify-self: center;
+    max-width: 40em;
+    width: 100%;
+
+    @media print {
+      max-width: none;
+    }
+  }
+}
+
+body > main {
+  max-width: 55em;
+
+  @include grid-media($media-md) {
+    // box-shadow: material-shadow(flat);
+  }
+
+  @include grid-media($media-md-only, $media-lg-only, $media-xl) {
+    $_gutter: _retrieve-neat-setting($neat-grid, gutter);
+    padding: $_gutter * 2;
+  }
+}
+
+body > footer {
+  @supports (display: grid) {
+    grid-column-start: full-start;
+    grid-column-end: full-end;
+    grid-row-start: content-end;
+    grid-row-end: footer-end;
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+#breakpoint-helper {
+  @media print {
+    display: none;
+    box-shadow: none;
+    &::after {
+      display: none;
+    }
+  }
+}

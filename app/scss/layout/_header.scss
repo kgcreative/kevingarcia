@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+body > header {
+  @include grid-media($media-md-max, $media-lg-only, $media-xl) {
+    padding-left: _retrieve-neat-setting($neat-grid, gutter);
+  }
+
+  @media print {
+    padding-left: 0;
+  }
+
+  #site-name {
+    @extend h3;
+    font-family: $serif-font-family;
+    font-style: italic;
+    text-align: left;
+    width: 11em;
+
+    @media print {
+      margin-bottom: .33em;
+    }
+
+    #{$hocus} {
+      text-decoration: none;
+    }
+  }
+}
+
+#skiplinks {
+  $_bg-color: color(dark-grey);
+  $_fg-color: color(white);
+
+  @extend %hidden-print;
+  position: absolute;
+  left: $small-spacing;
+  top: -500px;
+  background-color: $_bg-color;
+  color: $_fg-color;
+  font-family: $base-font-family;
+  font-size: .75em;
+  font-weight: 400;
+  padding: 0;
+  min-height: 1px;
+  transition-duration: $base-duration;
+  transition-property: top;
+  transition-timing-function: $base-timing;
+  text-decoration: none;
+
+  &,
+  &:hover,
+  &:visited {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &:active,
+  &:focus {
+    border: $base-border;
+    border-radius: $base-border-radius;
+    position: fixed;
+    width: auto;
+    height: auto;
+    top: $small-spacing;
+    left: $small-spacing;
+    padding: $small-spacing / 2 $small-spacing ;
+  }
+}
+
+body > header {
+  @media print {
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid color(black);
+  }
+}

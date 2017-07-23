@@ -1,0 +1,8 @@
+$lists__lists: (
+  margin: 0 0 modular-scale(0) modular-scale(1),
+  padding-left: 0,
+  li: (
+    margin-bottom: modular-scale(-2),
+    line-height: $base-line-height,
+  ),
+);

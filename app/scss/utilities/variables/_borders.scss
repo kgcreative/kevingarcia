@@ -1,0 +1,11 @@
+@charset 'UTF-8';
+
+////
+/// Borders
+////
+
+/// Base border radius.
+$base-border-radius: 0px;
+
+/// Base Border.
+$base-border: $base-border-radius solid color(border);

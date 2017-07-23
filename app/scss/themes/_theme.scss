@@ -1,0 +1,38 @@
+body {
+  background-color: tint(color(orange), 95%);
+  color: color(text);
+
+  @media print {
+    background-color: color(white);
+  }
+
+  > header {
+    background-color: color(white);
+  }
+
+  > main {
+    background-color: tint(color(orange), 95%);
+    @media print {
+      background-color: color(white);
+    }
+  }
+}
+
+body > header {
+  border-bottom: 1px solid color(grey);
+  a {
+    color: color(text);
+  }
+}
+
+nav {
+  a {
+    color: color(text);
+  }
+}
+
+hr {
+  border-bottom: 1px solid color(grey);
+}
+
+

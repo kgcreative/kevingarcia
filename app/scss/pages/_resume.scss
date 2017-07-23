@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+#resume {
+  section {
+    h2 {
+      text-align: left;
+      font-size: modular-scale(1);
+      margin-bottom: 1.5em;
+      padding-bottom: .5em;
+      margin-top: modular-scale(1);
+      border-bottom: 1px solid color(grey);
+    }
+
+    hr {
+      &:nth-of-type(2) {
+        page-break-before: always;
+      }
+      &:last-of-type {
+        visibility: hidden;
+      }
+    }
+  }
+
+  .job, .school {
+    @include grid-container;
+    @include grid-collapse;
+
+    :last-child {
+      margin-bottom: 0;
+    }
+
+    @supports (display: grid) {
+      grid-template-columns: unquote("[meta-start] 12em [details-start] 1fr [details-end]");
+      width: auto;
+      margin-left: 0;
+      margin-right: 0;
+      display: grid;
+      float: none;
+
+      @include grid-media($media-md-max, $media-lg-only, $media-xl, $media-print) {
+        $_gutter: _retrieve-neat-setting($neat-grid, gutter);
+        grid-column-gap: $_gutter * 2;
+        grid-row-gap: $_gutter / 2;
+      }
+    }
+
+    .meta {
+      @include grid-media($media-sm, $media-print) {
+        font-size: modular-scale(-1);
+      }
+      @include grid-column(1 of 3);
+      @supports (display: grid) {
+        margin-left: 0;
+        width: auto;
+        float: none;
+        @include grid-media($media-xs-only) {
+          grid-column-start: meta-start;
+          grid-column-end: details-end;
+        }
+        @include grid-media($media-sm, $media-print) {
+          grid-column-start: meta-start;
+          grid-column-end: details-start;
+        }
+      }
+
+      .location {
+        font-weight: 700;
+        @include grid-media($media-xs-only) {
+          display: inline-block;
+          margin-right: 1em;
+        }
+        @include grid-media($media-sm, $media-print) {
+          margin-top: em(14px, modular-scale(-1));
+          display: block;
+          margin-right: 0;
+        }
+      }
+      .dates {
+        font-style: italic;
+        @include grid-media($media-xs-only) {
+          display: inline-block;
+          margin-top: .5em;
+        }
+        @include grid-media($media-sm, $media-print) {
+          display: block;
+        }
+      }
+      > * {
+        margin-bottom: 0;
+      }
+    }
+
+    .details {
+      @include grid-column(2 of 3);
+      @supports (display: grid) {
+        margin-left: 0;
+        width: auto;
+        @include grid-media($media-xs-only) {
+          grid-column-start: meta-start;
+          grid-column-end: details-end;
+        }
+        @include grid-media($media-sm) {
+          grid-column-start: details-start;
+          grid-column-end: details-end;
+        }
+      }
+
+      .title {
+        margin-top: 0;
+        margin-bottom:0;
+      }
+      .company {
+        font-family: $heading-font-family;
+        font-size: modular-scale(1);
+        color: color(text);
+        text-decoration: none;
+        margin-top: 0;
+
+        @include grid-media($media-xs-only) {
+          margin-top: .5em;
+        }
+
+        a {
+          color: inherit;
+        }
+      }
+      .description {
+
+      }
+    }
+  }
+}

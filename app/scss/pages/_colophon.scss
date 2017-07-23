@@ -1,0 +1,12 @@
+#colophon {
+  main ul {
+    @extend %plain;
+    text-align: center;
+  }
+
+  @include grid-media((media: 'only screen and (max-width: 500px)')) {
+    br {
+      display: none;
+    }
+  }
+}

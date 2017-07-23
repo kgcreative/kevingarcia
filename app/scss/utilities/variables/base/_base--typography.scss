@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+$typography__body: (
+  -webkit-font-smoothing: subpixel-antialiased,
+  color: color(text),
+  font-family: $base-font-family,
+  line-height: $base-line-height,
+  '*': (
+    margin-top: 0,
+  ),
+);
+
+$typography__headlines: (
+  font-family: $heading-font-family,
+  font-weight: 700,
+  line-height: $heading-line-height,
+  text-align: left,
+  margin: null,
+  'p + &': (
+    margin-top: modular-scale(0),
+  ),
+);
+
+$typography__h1: (
+  font-family: $serif-font-family,
+  font-style: italic,
+  font-weight: 900,
+  line-height: $heading-line-height,
+  text-align: center,
+);
+
+$typography__h3:(
+  font-size: modular-scale(2),
+  margin-bottom: em(modular-scale(-2), modular-scale(2)),
+);
+
+$typography__h4:(
+  font-size: modular-scale(1),
+  margin-bottom: em(modular-scale(-2), modular-scale(1)),
+  text-align: left,
+);
+
+$typography__h5:(
+  font-size: modular-scale(1),
+  margin-bottom: em(modular-scale(-2), modular-scale(1)),
+  font-weight: 600,
+);
+
+$typography__h6:(
+  font-size: modular-scale(0),
+  margin-bottom: em(modular-scale(-2), modular-scale(0)),
+);
+
+$typography__p:(
+  margin: null,
+  margin-top: 0,
+  margin-bottom: modular-scale(-1),
+);
+
+$typography__a: (
+  color: inherit,
+  text-decoration: none,
+
+  #{$hocus}: (
+    color: null,
+    text-decoration: none,
+  ),
+);

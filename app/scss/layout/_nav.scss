@@ -1,0 +1,38 @@
+
+@charset 'UTF-8';
+
+body header > nav {
+  display: inline-block;
+  width: calc(100% - 11em);
+  text-align: right;
+
+  @include grid-media($media-md-max, $media-lg-only, $media-xl, $media-print) {
+    padding-right: _retrieve-neat-setting($neat-grid, gutter);
+  }
+
+  @media print {
+    display: none;
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: .5em;
+    margin: 0;
+
+    li {
+      display: inline;
+      margin-left: 1em;
+      margin-right: 1em;
+      position: relative;
+      white-space: nowrap;
+
+      &.current {
+        font-weight:700;
+      }
+    }
+  }
+}

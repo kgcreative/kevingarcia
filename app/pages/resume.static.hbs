@@ -1,0 +1,84 @@
+---
+title: About | Kevin Garcia
+page-id: resume
+current-nav-item: Resume
+
+"job":
+  [
+    {
+      'company': 'Stanford University',
+      'location': 'Stanford, CA',
+      'url': 'http://www.stanford.edu',
+      'title': 'Front End Developer &amp; Designer',
+      'date': 'February 2016 &ndash; Present',
+      'description': '<ul><li>Built a proof-of-concept microsite for the <a href="http://president.stanford.edu/inauguration/">Presidential Inauguration</a></li><li>This became the basis of for <a href="https://github.com/SU-SWS/decanter">Decanter</a>, an open-source scss framework which powers the main Stanford Website, the redesigned Identity Site, and the next generation of Drupal Sites built by Stanford Web Services</li><li>Using Decanter, built the front-end for the <a href="http://muledesign.com/2017/07/a-fresh-face-for-the-farm">redesigned</a> <a href="https://www.stanford.edu">Stanford.edu</a> and <a href="https://identity.stanford.edu/beta">Identity Toolkit</a></li><li>Art-directed and built <a href="http://news.stanford.edu/features/2016/alaska/">a</a> <a href="http://news.stanford.edu/features/2016/slac/">variety</a> <a href="http://news.stanford.edu/2016/06/07/stroll-bowes-art-architecture-library/">of</a> <a href="http://news.stanford.edu/2016/08/24/election-2016/">digital</a> <a href="http://news.stanford.edu/2016/12/20/meet-stanford-faculty/">storytelling</a> <a href="http://news.stanford.edu/2016/06/20/entrepreneurship-at-stanford/">packages</a> for <a href="http://news.stanford.edu">Stanford News</a></li><li>Core member of the UX Community of Practice, where we share best practices, institutional knowledge and share resources with our peer UX practitioners</li></ul>'
+    },
+    {
+      'company': 'Monterey Bay Aquarium',
+      'location': 'Monterey, CA',
+      'url': 'http://www.montereybayaquarium.org',
+      'title': 'Web Designer',
+      'date': 'April 2013 &ndash; February 2016',
+      'description': '<ul><li><a href="http://www.montereybayaquarium.org/styleguide/grid-marionette">Extended</a> and <a href="http://www.montereybayaquarium.org/styleguide/item-grid">added</a> to the <a href="http://www.montereybayaquarium.org/styleguide/grid-skeleton">class-based front-end framework</a> of the Monterey Bay Aquarium and Seafood Watch sites to allow for more granular responsive control<li>Designed and produceed the Monterey Bay Aquarium E-News, as well as other e-mail and social media campaigns and microsites</li>',
+    },
+    {
+      'company': 'Cal State Monterey Bay',
+      'location': 'Monterey, CA',
+      'url': 'http://www.csumb.edu',
+      'title': 'Art Director',
+      'date': 'December 2008 &ndash; April 2013',
+  'description': '<p><strong>Branding & Art Direction:</strong></p><ul><li>Shaped and defined the graphic elements of brand identity at both the master brand and sub-brand levels, while managing the associated digital assets.</li><li>Provided expertise in the development and evaluation of effective communication design strategies.</li><li>Provided lead art direction to other staff designers, student assistants and interns.</li></ul></p></li></ul><p><strong>Web:</strong></p><ul><li>Provided art-direction for the redesign of CSUMB.EDU, including site architecture for department subsites, at both template and sub-site levels</li><li>Assisted in building and maintaining style sheets, protocols and workflow within an enterprise-wide CMS.</li><li>Conducted weekly and on-call training and assistance for campus users</li><li>Advised and assisted management on the development of overall web and social media policies, procedures and standardsw</li></ul><p><strong>Print:</strong></p><ul><li>Art Directed print publications such as catalogs, event invitations, booklets, newsletters, posters, flyers, brochures and other university collateral materials</li><li>Maintained the university photo, media and asset library</li></ul><p><strong>Photography:</strong><ul><li>Provided Event, environmental and portrait photography services</li></ul>'
+    }
+  ]
+
+"school":
+  [
+    {
+      "school": "Andrews University",
+      "location": "Berrien Springs, MI",
+      "url": "http://www.andrews.edu",
+      "degree": "BA Visual Art, Minor Graphic Design",
+      "date": "Winter 2006",
+    },
+  ]
+
+
+_options:
+  layout: app/layouts/layout.static.hbs
+---
+<h1>R&egrave;sum&egrave;</h1>
+<section aria-labelledby="#experience">
+  <h2 id="#experience">Experience</h2>
+{{#each job}}
+  <div class="job">
+    <div class="meta">
+      <p class="location"><span class="sr-only-text">Location: </span>{{location}}</p>
+      <p class="dates"><span class="sr-only-text">Dates Employed: </span>{{{date}}}</p>
+    </div>
+    <div class="details">
+      <h4 class="title"><span class="sr-only-text">Title: </span>{{{title}}}</h4>
+      <p class="company"><span class="sr-only-text">Company Name: </span><a href="{{url}}">{{company}}</a></p>
+      <div class="description">{{{description}}}</div>
+    </div>
+  </div>
+  <hr />
+{{/each}}
+</section>
+
+<section aria-labelledby="#education">
+  <h2 id="#education">Education</h2>
+  {{#each school}}
+    <div class="school">
+      <div class="meta">
+        <p class="location"><span class="sr-only-text">Location: </span>{{location}}</p>
+        <p class="dates"><span class="sr-only-text">Date of Graduation: </span>{{{date}}}</p>
+      </div>
+      <div class="details">
+        <h4 class="title"><span class="sr-only-text">Degree: </span>{{{degree}}}</h4>
+        <p class="company"><span class="sr-only-text">School Name: </span><a href="{{url}}">{{school}}</a></p>
+        <div class="description">{{{description}}}</div>
+      </div>
+    </div>
+    <hr />
+  {{/each}}
+</section>

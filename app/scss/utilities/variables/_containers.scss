@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+// Responsive Containers
+$base-padding: modular-scale(1);
+
+$chrome-container: (
+    md:     ( columns: 12,  grid-media: $media-md-max, v-space: null, max-width: false, grid-collapse: false ),
+    lg:     ( columns: 12,  grid-media: $media-lg-only, v-space: null, max-width: false, grid-collapse: false ),
+    xl:     ( columns: 12,  grid-media: $media-xl,      v-space: null, max-width: true,  grid-collapse: false ),
+    print:  ( columns: 12,  grid-media: $media-print,   v-space: null, max-width: false,  grid-collapse: false ),
+);
+
+$content-container: (
+  xs:     ( columns: 12,  grid-media: $media-xs-only, v-space: null, max-width: false, grid-collapse: false ),
+  sm:     ( columns: 10,  grid-media: $media-sm-only, v-space: null, max-width: false, grid-collapse: false ),
+  md:     ( columns: 9,   grid-media: $media-md-only, v-space: null, max-width: false, grid-collapse: false ),
+  lg:     ( columns: 7.5, grid-media: $media-lg-only, v-space: null, max-width: false, grid-collapse: false ),
+  xl:     ( columns: 7,   grid-media: $media-xl,      v-space: null, max-width: true,  grid-collapse: false ),
+  print:  ( columns: 9,   grid-media: $media-print,   v-space: null, max-width: false, grid-collapse: false ),
+);
+
+$featured-content: ( // adjust-content-container
+  xs:     ( grid-columns: map-get(map-get($content-container, xs),    columns),  grid-media: $media-xs-only,  grid-collapse: false,  max-width: false,  columns: null ),
+  sm:     ( grid-columns: map-get(map-get($content-container, sm),    columns),  grid-media: $media-sm-only,  grid-collapse: true,   max-width: false,  columns: 3 ),
+  md:     ( grid-columns: map-get(map-get($content-container, md),    columns),  grid-media: $media-md-only,  grid-collapse: true,   max-width: false,  columns: 2 ),
+  lg:     ( grid-columns: map-get(map-get($content-container, lg),    columns),  grid-media: $media-lg-only,  grid-collapse: true,   max-width: false,  columns: 1 ),
+  xl:     ( grid-columns: map-get(map-get($content-container, xl),    columns),  grid-media: $media-xl,       grid-collapse: true,   max-width: true,   columns: 1 ),
+  print:  ( grid-columns: map-get(map-get($content-container, print), columns),  grid-media: $media-print,    grid-collapse: true,   max-width: false,  columns: 2 ),
+);
+
+$important-content: ( // adjust-content-container
+    xs:     ( grid-columns: map-get(map-get($content-container, xs),    columns),  grid-media: $media-xs-only,  grid-collapse: true, max-width: false,  columns: -2 ),
+    sm:     ( grid-columns: map-get(map-get($content-container, sm),    columns),  grid-media: $media-sm-only,  grid-collapse: true, max-width: false,  columns: 3 ),
+    md:     ( grid-columns: map-get(map-get($content-container, md),    columns),  grid-media: $media-md-only,  grid-collapse: true, max-width: false,  columns: 4 ),
+    lg:     ( grid-columns: map-get(map-get($content-container, lg),    columns),  grid-media: $media-lg-only,  grid-collapse: true, max-width: false,  columns: 2 ),
+    xl:     ( grid-columns: map-get(map-get($content-container, xl),    columns),  grid-media: $media-xl,       grid-collapse: true, max-width: true,   columns: 2 ),
+    print:  ( grid-columns: map-get(map-get($content-container, print), columns),  grid-media: $media-print,    grid-collapse: true, max-width: false,  columns: 2 ),
+);
+
+$full-container: (
+    md:     ( columns: 12,  grid-media: $media-md-max,  v-space: null, max-width: false, grid-collapse: false ),
+    lg:     ( columns: 12,  grid-media: $media-lg-only, v-space: null, max-width: false, grid-collapse: false ),
+    xl:     ( columns: 12,  grid-media: $media-xl,      v-space: null, max-width: true,  grid-collapse: false ),
+    print:  ( columns: 12,  grid-media: $media-print,   v-space: null, max-width: false,  grid-collapse: false ),
+);
+
+$edge-to-edge-container: (
+    md:     ( columns: 12,  grid-media: $media-md-max,  v-space: null, max-width: false, grid-collapse: false ),
+    lg:     ( columns: 12,  grid-media: $media-lg-only, v-space: null, max-width: false, grid-collapse: false ),
+    xl:     ( columns: 12,  grid-media: $media-xl,      v-space: null, max-width: false, grid-collapse: false ),
+    print:  ( columns: 12,  grid-media: $media-print,   v-space: null, max-width: false, grid-collapse: false ),
+);
+
+$collapsed-edge-to-edge-container: (
+    md:     ( columns: 12,  grid-media: $media-md-max,  v-space: null, max-width: false, grid-collapse: true ),
+    lg:     ( columns: 12,  grid-media: $media-lg-only, v-space: null, max-width: false, grid-collapse: true ),
+    xl:     ( columns: 12,  grid-media: $media-xl,      v-space: null, max-width: false, grid-collapse: true ),
+    print:  ( columns: 12,  grid-media: $media-print,   v-space: null, max-width: false, grid-collapse: true ),
+);
+
+$collapsed-full-container: (
+    md:     ( columns: 12,  grid-media: $media-md-max,  v-space: null, max-width: false, grid-collapse: true ),
+    lg:     ( columns: 12,  grid-media: $media-lg-only, v-space: null, max-width: false, grid-collapse: true ),
+    xl:     ( columns: 12,  grid-media: $media-xl,      v-space: null, max-width: true,  grid-collapse: true ),
+    print:  ( columns: 12,  grid-media: $media-print,   v-space: null, max-width: false,  grid-collapse: true ),
+);
+
+
+// Responsive items per row sets
+
+$responsive-items-2: (
+    xs:     ( items: 1, grid-media: $media-xs-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+    sm:     ( items: 2, grid-media: $media-sm-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+    md:     ( items: 2, grid-media: $media-md-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+    lg:     ( items: 2, grid-media: $media-lg-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+    xl:     ( items: 2, grid-media: $media-xl,       center-grid: true, equal-heights: true, grid-collapse: false ),
+    print:  ( items: 2, grid-media: $media-print,    center-grid: true, equal-heights: true, grid-collapse: false ),
+);
+
+$collapsed-responsive-items-2: (
+    xs:     ( items: 1, grid-media: $media-xs-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+    sm:     ( items: 2, grid-media: $media-sm-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+    md:     ( items: 2, grid-media: $media-md-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+    lg:     ( items: 2, grid-media: $media-lg-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+    xl:     ( items: 2, grid-media: $media-xl,       center-grid: true, equal-heights: true, grid-collapse: true ),
+    print:  ( items: 2, grid-media: $media-print,    center-grid: true, equal-heights: true, grid-collapse: true ),
+);
+
+$responsive-items-3: (
+    xs:     ( items: 1, grid-media: $media-xs-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+    sm:     ( items: 3, grid-media: $media-sm-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+    md:     ( items: 3, grid-media: $media-md-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+    lg:     ( items: 3, grid-media: $media-lg-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+    xl:     ( items: 3, grid-media: $media-xl,       center-grid: true, equal-heights: true, grid-collapse: false ),
+    print:  ( items: 3, grid-media: $media-print,    center-grid: true, equal-heights: true, grid-collapse: false ),
+);
+
+$collapsed-responsive-items-3: (
+    xs:     ( items: 1, grid-media: $media-xs-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+    sm:     ( items: 3, grid-media: $media-sm-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+    md:     ( items: 3, grid-media: $media-md-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+    lg:     ( items: 3, grid-media: $media-lg-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+    xl:     ( items: 3, grid-media: $media-xl,       center-grid: true, equal-heights: true, grid-collapse: true ),
+    print:  ( items: 3, grid-media: $media-print,    center-grid: true, equal-heights: true, grid-collapse: true ),
+);
+
+
+$responsive-items-4: (
+    xs:     ( items: 1, grid-media: $media-xs-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+    sm:     ( items: 2, grid-media: $media-sm-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+    md:     ( items: 2, grid-media: $media-md-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+    lg:     ( items: 4, grid-media: $media-lg-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+    xl:     ( items: 4, grid-media: $media-xl,       center-grid: true, equal-heights: true, grid-collapse: false ),
+    print:  ( items: 4, grid-media: $media-print,    center-grid: true, equal-heights: true, grid-collapse: false ),
+);
+
+$collapsed-responsive-items-4: (
+    xs:     ( items: 1, grid-media: $media-xs-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+    sm:     ( items: 2, grid-media: $media-sm-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+    md:     ( items: 2, grid-media: $media-md-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+    lg:     ( items: 4, grid-media: $media-lg-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+    xl:     ( items: 4, grid-media: $media-xl,       center-grid: true, equal-heights: true, grid-collapse: true ),
+    print:  ( items: 4, grid-media: $media-print,    center-grid: true, equal-heights: true, grid-collapse: true ),
+);
+
+$responsive-items-4-container: ( // adjust-content-container
+    xs:     ( grid-columns: 12,  grid-media: $media-xs-only,  grid-collapse: false, max-width: false,  columns: null ),
+    sm:     ( grid-columns: 9,   grid-media: $media-sm-only,  grid-collapse: true, max-width: false,  columns: -2 ),
+    md:     ( grid-columns: 7,   grid-media: $media-md-only,  grid-collapse: true, max-width: false,  columns: -4 ),
+    lg:     ( grid-columns: 6,   grid-media: $media-lg-only,  grid-collapse: true, max-width: false,  columns: null ),
+    xl:     ( grid-columns: 6,   grid-media: $media-xl,       grid-collapse: true, max-width: true,   columns: null ),
+    print:  ( grid-columns: 10,  grid-media: $media-print,    grid-collapse: true, max-width: false,  columns: null ),
+);
+
+
+$responsive-items-5: (
+  xs:     ( items: 2, grid-media: $media-xs-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+  sm:     ( items: 3, grid-media: $media-sm-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+  md:     ( items: 5, grid-media: $media-md-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+  lg:     ( items: 5, grid-media: $media-lg-only,  center-grid: true, equal-heights: true, grid-collapse: false ),
+  xl:     ( items: 5, grid-media: $media-xl,       center-grid: true, equal-heights: true, grid-collapse: false ),
+  print:  ( items: 5, grid-media: $media-print,    center-grid: true, equal-heights: true, grid-collapse: false ),
+);
+
+$collapsed-responsive-items-5: (
+xs:     ( items: 2, grid-media: $media-xs-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+sm:     ( items: 3, grid-media: $media-sm-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+md:     ( items: 5, grid-media: $media-md-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+lg:     ( items: 5, grid-media: $media-lg-only,  center-grid: true, equal-heights: true, grid-collapse: true ),
+xl:     ( items: 5, grid-media: $media-xl,       center-grid: true, equal-heights: true, grid-collapse: true ),
+print:  ( items: 5, grid-media: $media-print,    center-grid: true, equal-heights: true, grid-collapse: true ),
+);

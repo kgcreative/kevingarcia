@@ -1,0 +1,50 @@
+---
+"nav-item":
+  [
+    {
+      "name": "About",
+      "url": "/"
+    },
+    {
+      "name": "Portfolio",
+      "url": "portfolio.html"
+    },
+    {
+      "name": "Resume",
+      "url": "resume.html"
+    },
+    {
+      "name": "Colophon",
+      "url": "colophon.html"
+    },
+  ]
+
+site-name: Kevin Garcia
+
+_options:
+  partials:
+    - app/partials/analytics.static.hbs
+    - app/partials/head.static.hbs
+    - app/partials/header.static.hbs
+    - app/partials/nav.static.hbs
+    - app/partials/footer.static.hbs
+---
+<!DOCTYPE html>
+<!-- analytics-id: UA-1860414-50 -->
+<html>
+<head>
+  {{>head}}
+</head>
+<body {{#if page-id}}id="{{page-id}}"{{/if~}} class="{{#if has-sidebar}}with-sidebar {{/if~}}{{page-classes}}">
+  <header>
+    {{>header}}
+    {{>nav}}
+  </header>
+  <main>
+    {{content}}
+  </main>
+  <footer>
+    {{>footer}}
+  </footer>
+</body>
+</html>

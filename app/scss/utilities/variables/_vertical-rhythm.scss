@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+$base-spacing:    modular-scale(1);
+$small-spacing:   modular-scale(0);
+
+$spacing-xxl:               $base-spacing * 2.5 !default; // 45 px
+$spacing-xl:                $base-spacing * 2 !default; // 36 px
+$spacing-lg:                $base-spacing * 1.44444444 !default; // 26 px
+$spacing-md:                $base-spacing !default; // 18 px
+$spacing-sm:                $base-spacing * .5 !default; // 9 px
+$spacing-xs:                $base-spacing * .33333333 !default; // 6px
+$spacing-xxs:               $base-spacing * .1666666667 !default; // 3px

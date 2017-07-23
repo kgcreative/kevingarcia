@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+@mixin responsive-flex-items-per-row($settings, $parent: '&', $children: '> *' ) {
+
+  @each $breakpoint, $_map in $settings {
+    $_items: map_get($_map, items);
+    $_grid: map-get($_map, grid-media);
+    $_center-grid: map-get($_map, center-grid);
+    $_equal-heights: map-get($_map, equal-heights);
+    $_grid-collapse: map-get($_map, grid-collapse);
+
+    @include grid-media($_grid) {
+      @include flex-items-per-row($_items, $parent: $parent, $children: $children, $center-grid: $_center-grid, $equal-heights: $_equal-heights, $grid-collapse: $_grid-collapse);
+    }
+  }
+}

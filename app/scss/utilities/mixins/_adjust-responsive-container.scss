@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+@mixin adjust-responsive-container($settings, $parent: '&', $children: '> *' ) {
+
+  @each $breakpoint, $_map in $settings {
+    $_grid-columns: map-get($_map, grid-columns);
+    $_grid: map-get($_map, grid-media);
+    $_max-width: map-get($_map, max-width);
+    $_columns: map-get($_map, columns);
+    $_grid-collapse: map-get($_map, grid-collapse);
+
+    @include grid-media($_grid) {
+      @if $_columns != null {
+        @include adjust-container-width($_columns, $grid: $_grid, $max-width: $_max-width, $grid-collapse: $_grid-collapse, $grid-columns: $_grid-columns);
+      } @else if $_grid-collapse = true {
+        @include grid-collapse;
+      }
+    }
+  }
+}

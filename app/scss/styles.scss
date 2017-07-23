@@ -1,0 +1,45 @@
+@charset 'UTF-8';
+
+// 0. Decanter vendors
+@import 'normalize';
+// @import 'font-awesome';
+
+// Configuration and helpers
+// 1. Configuration and helpers
+@import
+  'utilities/variables/global-settings'
+, 'utilities/decanter-utilities'
+, 'utilities/variables/variables'
+,	'utilities/mixins/responsive-flex-items-per-row'
+,	'utilities/mixins/adjust-responsive-container'
+;
+
+// 2. Base
+@import
+  'base/decanter-base'
+, 'base/typography'
+;
+
+// 3. Components
+@import
+  'components/decanter-components'
+;
+
+// 4. Layout-related sections
+@import
+  'layout/header'
+, 'layout/nav'
+, 'layout/layout'
+, 'layout/footer'
+;
+
+// 5. Page-specific styles
+@import
+  'pages/about'
+, 'pages/resume'
+, 'pages/colophon'
+;
+
+// 6. Themes
+@import 'themes/theme'
+;
