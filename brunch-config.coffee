@@ -12,10 +12,10 @@ exports.config =
   files:
     javascripts:
       joinTo:
-# all BUT app code - 'vendor/', 'node_modules/', etc
-        'js/vendor.js': /^(?!app)/
-# all code from 'app/'
-        'js/app.js': /^app/
+        # all BUT app code - 'vendor/', 'node_modules/', etc
+        'js/vendor.js': /(?!app)/
+        # all code from 'app/'
+        'js/app.js': /app/
 
     stylesheets: joinTo: 'css/style.css'
 
