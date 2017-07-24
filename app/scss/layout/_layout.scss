@@ -81,25 +81,12 @@ body > main {
     grid-row-start: content-start;
     grid-row-end: content-end;
     justify-self: center;
-    max-width: 40em;
+    max-width: 45em;
     width: 100%;
-
-    @media print {
-      max-width: none;
-    }
-  }
-}
-
-body > main {
-  max-width: 55em;
-
-  @include grid-media($media-md) {
-    // box-shadow: material-shadow(flat);
   }
 
-  @include grid-media($media-md-only, $media-lg-only, $media-xl) {
-    $_gutter: _retrieve-neat-setting($neat-grid, gutter);
-    padding: $_gutter * 2;
+  @media print {
+    max-width: none;
   }
 }
 

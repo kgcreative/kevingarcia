@@ -1,0 +1,25 @@
+@charset 'UTF-8';
+
+#portfolio {
+  main, .main {
+    max-width: none;
+  }
+  section {
+    @include flex-items-per-row(3, $children: '.project');
+    .project {
+      figure {
+        a {
+          position: initial;
+          display: initial;
+          overflow: hidden;
+          &::after {
+            content: null;
+            display: none;
+          }
+        }
+        @include ar-container(4, 3, vertical);
+        @include anchor-image("top-center");
+      }
+    }
+  }
+}

@@ -1,0 +1,233 @@
+@charset "UTF-8";
+@mixin anchor-image($target: null, $initial-scale: 1.0, $hover-scale: 1.04) {
+  img {
+    @if ($target == "top-left") {
+      top: 0;
+      left: 0;
+    } @else if ($target == "top-center") {
+      top: 0;
+      left: 50%;
+      @if $initial-scale {
+        transform: translate3d(-50%, 0, 0) scale($initial-scale);
+      } @else {
+        transform: translate3d(-50%, 0, 0);
+      }
+      @if $hover-scale {
+        &[data-hover="true"] {
+          img {
+            transform: translate3d(-50%, 0, 0) scale($hover-scale);
+            transition: all .3s ease-out;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin img-effects($anchoring: true, $initial-scale: 1.0, $hover-scale: 1.04) {
+
+  @if $anchoring {
+    &[data-anchor-v="top"][data-anchor-h="left"] {
+      img {
+        top: 0;
+        left: 0;
+
+        @if $initial-scale {
+          transform: scale($initial-scale);
+        } @else {
+          transform: initial;
+        }
+
+        @if $hover-scale {
+          &[data-hover="true"] {
+            img {
+              transform: scale($hover-scale);
+              transition: all .3s ease-out;
+            }
+          }
+        }
+      }
+    }
+
+    &[data-anchor-v="top"][data-anchor-h="center"] {
+      img {
+        top: 0;
+        left: 50%;
+        @if $initial-scale {
+          transform: translate3d(-50%, 0, 0) scale($initial-scale);
+        } @else {
+          transform: translate3d(-50%, 0, 0);
+        }
+        @if $hover-scale {
+          &[data-hover="true"] {
+            img {
+              transform: translate3d(-50%, 0, 0) scale($hover-scale);
+              transition: all .3s ease-out;
+            }
+          }
+        }
+      }
+    }
+    &[data-anchor-v="top"][data-anchor-h="right"] {
+      img {
+        top: 0;
+        left: inherit;
+        right: 0;
+
+        @if $initial-scale {
+          transform: scale($initial-scale);
+        }
+
+        @if $hover-scale {
+          &[data-hover="true"] {
+            img {
+              transform: scale($hover-scale);
+              transition: all .3s ease-out;
+            }
+          }
+        }
+      }
+    }
+
+    &[data-anchor-v="center"][data-anchor-h="left"] {
+      img {
+        top: 50%;
+        left: 0;
+
+        @if $initial-scale {
+          transform: translate3d(0, -50%, 0) scale($initial-scale);
+        } @else {
+          transform: translate3d(0, -50%, 0);
+        }
+
+        @if $hover-scale {
+          &[data-hover="true"] {
+            img {
+              transform: translate3d(0, -50%, 0) scale($hover-scale);
+              transition: all .3s ease-out;
+            }
+          }
+        }
+      }
+    }
+
+    &[data-anchor-v="center"][data-anchor-h="center"] {
+      img {
+        top: 50%;
+        left: 50%;
+        @if $initial-scale {
+          transform: translate3d(-50%, -50%, 0) scale($initial-scale);
+        } @else {
+          transform: translate3d(-50%, -50%, 0);
+        }
+      }
+      @if $hover-scale {
+        &[data-hover="true"] {
+          img {
+            transform: translate3d(-50%, -50%, 0) scale($hover-scale);
+            transition: all .3s ease-out;
+          }
+        }
+      }
+    }
+
+    &[data-anchor-v="center"][data-anchor-h="right"] {
+      img {
+        top: 50%;
+        left: inherit;
+        right: 0;
+        @if $initial-scale {
+          transform: translate3d(0, -50%, 0) scale($initial-scale);
+        } @else {
+          transform: translate3d(0, -50%, 0);
+        }
+      }
+      @if $hover-scale {
+        &[data-hover="true"] {
+          img {
+            transform: translate3d(0, -50%, 0) scale($hover-scale);
+            transition: all .3s ease-out;
+          }
+        }
+      }
+    }
+
+    &[data-anchor-v="bottom"][data-anchor-h="left"] {
+      img {
+        top: inherit;
+        bottom: 0;
+        left: 0;
+        @if $initial-scale {
+          transform: scale($initial-scale);
+        }
+      }
+      @if $hover-scale {
+        &[data-hover="true"] {
+          img {
+            transform: scale($hover-scale);
+            transition: all .3s ease-out;
+          }
+        }
+      }
+    }
+
+    &[data-anchor-v="bottom"][data-anchor-h="center"] {
+      img {
+        top: inherit;
+        bottom: 0;
+        left: 50%;
+        @if $initial-scale {
+          transform: translate3d(-50%, 0, 0) scale(1);
+        } @else {
+          transform: translate3d(-50%, 0, 0);
+        }
+      }
+      @if $hover-scale {
+        &[data-hover="true"] {
+          img {
+            transform: translate3d(-50%, 0, 0) scale($hover-scale);
+            transition: all .3s ease-out;
+          }
+        }
+      }
+    }
+
+    &[data-anchor-v="bottom"][data-anchor-h="right"] {
+      img {
+        top: inherit;
+        bottom: 0;
+        left: inherit;
+        right: 0;
+        @if $initial-scale {
+          transform: scale($initial-scale);
+        }
+      }
+      @if $hover-scale {
+        &[data-hover="true"] {
+          img {
+            transform: scale($hover-scale);
+            transition: all .3s ease-out;
+          }
+        }
+      }
+    }
+  } @else {
+    img {
+      top: 50%;
+      left: 50%;
+      @if $initial-scale {
+        transform: translate3d(-50%, -50%, 0) scale($initial-scale);
+      } @else {
+        transform: initial;
+      }
+    }
+    @if $hover-scale {
+      &[data-hover="true"] {
+        img {
+          transform: translate3d(-50%, -50%, 0) scale($hover-scale);
+          transition: all .3s ease-out;
+        }
+      }
+    }
+  }
+}

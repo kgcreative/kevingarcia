@@ -38,6 +38,15 @@ h2 {
   @include grid-media($media-xs-only) {
     font-size: modular-scale(3);
   }
+  @include grid-media($media-md-max) {
+    letter-spacing: -1px;
+  }
+  @include grid-media($media-xs-only) {
+    letter-spacing: -.5px;
+  }
+  @include grid-media($media-lg) {
+    letter-spacing: -2px;
+  }
 }
 
 h3 {

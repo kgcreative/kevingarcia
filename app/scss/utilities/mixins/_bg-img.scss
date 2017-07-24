@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+@mixin bg-img($overflow: null) {
+  position: absolute;
+
+  margin: auto;
+  backface-visibility: hidden;
+  min-width: calc(100% + 1px);
+  min-height: calc(100% + 1px);
+  overflow: hidden;
+  width: auto;
+  height: auto;
+
+  top: 0;
+  left: 0;
+  transform: none;
+
+  @supports (transform: translate3d(0,0,0)) {
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+
+  @if ( $overflow == 'horizontal' ) {
+    max-height: calc(100% + 1px);
+    max-width: none;
+  } @else if ( $overflow == 'vertical') {
+    max-width: calc(100% + 1px);
+    max-height: none;
+  } @else {
+    max-width: none;
+    max-height: none;
+  }
+}

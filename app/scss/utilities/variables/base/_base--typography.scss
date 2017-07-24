@@ -15,6 +15,8 @@ $typography__headlines: (
   font-weight: 700,
   line-height: $heading-line-height,
   text-align: left,
+  margin-bottom: .33333337em,
+  margin-left: em(-1px),
   margin: null,
   'p + &': (
     margin-top: modular-scale(0),

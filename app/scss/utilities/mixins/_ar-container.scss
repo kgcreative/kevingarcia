@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+////
+/// Aspect Ratio Container
+/// @group mixins
+////
+
+@mixin ar-container( $horizontal: 3, $vertical: 2, $overflow: null, $anchoring: null, $initial-scale: 1.0, $hover-scale: 1.04 ) {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  min-height: 1em;
+  height: auto;
+  padding-top: percentage($vertical / $horizontal);
+
+  img {
+    @include bg-img($overflow);
+  }
+
+  @include img-effects( $anchoring: $anchoring, $initial-scale: $initial-scale, $hover-scale: $hover-scale );
+
+}

@@ -12,9 +12,6 @@
     }
 
     hr {
-      &:nth-of-type(2) {
-        page-break-before: always;
-      }
       &:last-of-type {
         visibility: hidden;
       }

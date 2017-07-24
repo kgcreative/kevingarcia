@@ -12,6 +12,9 @@
 , 'utilities/variables/variables'
 ,	'utilities/mixins/responsive-flex-items-per-row'
 ,	'utilities/mixins/adjust-responsive-container'
+,	'utilities/mixins/ar-container'
+,	'utilities/mixins/bg-img'
+,	'utilities/mixins/img-effects'
 ;
 
 // 2. Base
@@ -34,11 +37,7 @@
 ;
 
 // 5. Page-specific styles
-@import
-  'pages/about'
-, 'pages/resume'
-, 'pages/colophon'
-;
+@import 'pages/pages';
 
 // 6. Themes
 @import 'themes/theme'

@@ -5,11 +5,24 @@ current-nav-item: Portfolio
 
 _options:
   layout: app/layouts/layout.static.hbs
----
 
+"project":
+  [
+    {
+    'project': 'Stanford University',
+    'url': 'portfolio/stanford.html',
+    'image': 'stanford-landing.jpg',
+    },
+  ]
+---
+<h1>Portfolio</h1>
 <section>
-  <h1>Portfolio</h1>
-</section>
-<section>
-  <h4>Ding!</h4>
+{{#each project}}
+  <div class="project">
+    <figure>
+      <a href="{{url}}"><img src="/img/{{image}}" /></a>
+    </figure>
+  </div>
+{{/each}}
+
 </section>
