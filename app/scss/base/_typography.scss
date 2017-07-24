@@ -139,6 +139,13 @@ a {
   }
 }
 
+br.print {
+  display: none;
+  @media print {
+    display: initial;
+  }
+}
+
 main a {
   position: relative;
   display: inline-block;
