@@ -2,6 +2,9 @@
 @charset 'UTF-8';
 
 body header > nav {
+  @include grid-media($media-sm-max) {
+    display: none;
+  }
   display: inline-block;
   width: calc(100% - 11em);
   text-align: right;

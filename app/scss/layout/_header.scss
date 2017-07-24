@@ -9,6 +9,8 @@ body > header {
     padding-left: 0;
   }
 
+  min-height:em(64px);
+
   #site-name {
     @extend h3;
     font-family: $serif-font-family;
