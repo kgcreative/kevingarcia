@@ -156,7 +156,7 @@ main a {
     width: calc(100% + #{em(10px)});
     height: em(3px);
     bottom: em(-3px);
-    background-color: color(light-grey);
+    background-color: tint(color(blue), 70%);
     z-index: -1;
     transition: all .15s ease-in;
 
@@ -167,13 +167,15 @@ main a {
   #{$pocus} {
     &::after {
       height: em(33px);
-      background-color: tint(color(aqua), 65%);
+      background-color: tint(color(blue), 80%);
       transition: all .15s ease-out;
     }
   }
   &:active {
     &::after {
-      background-color: tint(color(light-grey), 10%);
+      background-color: tint(color(blue), 40%);
+      height: em(3px);
+      transition-duration: .05s;
     }
   }
 }
@@ -188,7 +190,7 @@ header {
       width: calc(100% + #{em(10px)});
       height: em(3px);
       top: em(-30px);
-      background-color: color(light-grey);
+      background-color: tint(color(blue), 70%);
       z-index: -1;
       transition: all .2s ease-in;
 
@@ -199,15 +201,14 @@ header {
     #{$hocus} {
       &::before {
         height: em(24px);
-        background-color: tint(color(aqua), 60%);
         transition: all .2s ease-out;
       }
     }
     &:active {
       &::before {
         height: em(56px);
-        background-color: tint(color(light-grey), 10%);
-        transition-duration: .1s;
+        transition-duration: .05s;
+        background-color: tint(color(blue), 80%);
       }
     }
   }

@@ -1,5 +1,5 @@
 body {
-  background-color: tint(color(orange), 95%);
+  background-color: tint(color(navy), 95%);
   color: color(text);
 
   @media print {
@@ -11,7 +11,7 @@ body {
   }
 
   > main {
-    background-color: tint(color(orange), 95%);
+    background-color: tint(color(navy), 95%);
     @media print {
       background-color: color(white);
     }
