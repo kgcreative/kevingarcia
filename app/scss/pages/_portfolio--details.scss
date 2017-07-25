@@ -14,7 +14,7 @@
       font-weight: normal;
     }
     h2 + h3 {
-      margin-top: modular-scale(1);
+      margin-top: .75em;
     }
     width: 100%;
     @media print {
@@ -25,6 +25,9 @@
 
     > section {
       @include responsive-container($content-container);
+      @include grid-media($media-md-max, $media-lg-only, $media-xl, $media-print) {
+        padding-top: _retrieve-neat-setting($neat-grid, gutter);
+      }
     }
   }
 
