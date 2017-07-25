@@ -76,14 +76,14 @@
       @include grid-media($media-sm-only) {
         @include ar-container(10, 4, vertical);
       }
-      @include grid-media($media-md) {
+      @include grid-media($media-md, $media-print) {
         @include ar-container(10, 3, vertical);
       }
     }
     figcaption {
       @include responsive-container($content-container);
     }
-    @include grid-media($media-md-max, $media-lg-only, $media-xl) {
+    @include grid-media($media-md-max, $media-lg-only, $media-xl, $media-print) {
       $_gutter: _retrieve-neat-setting($neat-grid, gutter);
       margin-top: $_gutter;
       margin-bottom: $_gutter;
