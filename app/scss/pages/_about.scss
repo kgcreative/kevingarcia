@@ -2,6 +2,6 @@
 
 #about {
   main {
-    max-width: 35em;
+    @include responsive-container($content-container);
   }
 }

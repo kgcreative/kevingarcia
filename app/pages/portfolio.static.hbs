@@ -9,9 +9,16 @@ _options:
 "project":
   [
     {
-    'project': 'Stanford University',
-    'url': 'portfolio/stanford.html',
-    'image': 'stanford-landing.jpg',
+      'title': 'Stanford.edu',
+      'url': 'portfolio/stanford.html',
+      'image': 'stanford-landing.jpg',
+      'overflow': 'vertical',
+    },
+    {
+      'title': 'SeafoodWatch',
+      'url': 'portfolio/seafoodwatch.html',
+      'image': 'seafood-watch-landing.jpg',
+      'overflow': 'horizontal',
     },
   ]
 ---
@@ -20,7 +27,10 @@ _options:
 {{#each project}}
   <div class="project">
     <figure>
-      <a href="{{url}}"><img src="/img/{{image}}" /></a>
+      <a href="{{url}}" class="{{overflow}}">
+        <img src="/img/{{image}}" />
+        <figcaption>{{title}}</figcaption>
+      </a>
     </figure>
   </div>
 {{/each}}

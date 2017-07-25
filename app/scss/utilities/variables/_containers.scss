@@ -14,18 +14,37 @@ $content-container: (
   xs:     ( columns: 12,  grid-media: $media-xs-only, v-space: null, max-width: false, grid-collapse: false ),
   sm:     ( columns: 10,  grid-media: $media-sm-only, v-space: null, max-width: false, grid-collapse: false ),
   md:     ( columns: 9,   grid-media: $media-md-only, v-space: null, max-width: false, grid-collapse: false ),
-  lg:     ( columns: 7.5, grid-media: $media-lg-only, v-space: null, max-width: false, grid-collapse: false ),
-  xl:     ( columns: 7,   grid-media: $media-xl,      v-space: null, max-width: true,  grid-collapse: false ),
+  lg:     ( columns: 7, grid-media: $media-lg-only, v-space: null, max-width: false, grid-collapse: false ),
+  xl:     ( columns: 7.25,   grid-media: $media-xl,      v-space: null, max-width: true,  grid-collapse: false ),
   print:  ( columns: 9,   grid-media: $media-print,   v-space: null, max-width: false, grid-collapse: false ),
 );
 
+
 $featured-content: ( // adjust-content-container
+  xs:     ( grid-columns: map-get(map-get($content-container, xs),    columns),  grid-media: $media-xs-only,  grid-collapse: false,  max-width: false,  columns: 0 ),
+  sm:     ( grid-columns: map-get(map-get($content-container, sm),    columns),  grid-media: $media-sm-only,  grid-collapse: false,   max-width: false,  columns: 2 ),
+  md:     ( grid-columns: map-get(map-get($content-container, md),    columns),  grid-media: $media-md-only,  grid-collapse: false,   max-width: false,  columns: 2.5 ),
+  lg:     ( grid-columns: map-get(map-get($content-container, lg),    columns),  grid-media: $media-lg-only,  grid-collapse: false,   max-width: false,  columns: 3 ),
+  xl:     ( grid-columns: map-get(map-get($content-container, xl),    columns),  grid-media: $media-xl,       grid-collapse: false,   max-width: true,   columns: 3.75 ),
+  print:  ( grid-columns: map-get(map-get($content-container, print), columns),  grid-media: $media-print,    grid-collapse: false,   max-width: false,  columns: 3 ),
+);
+
+$featured-content--collapsed: ( // adjust-content-container
   xs:     ( grid-columns: map-get(map-get($content-container, xs),    columns),  grid-media: $media-xs-only,  grid-collapse: false,  max-width: false,  columns: null ),
   sm:     ( grid-columns: map-get(map-get($content-container, sm),    columns),  grid-media: $media-sm-only,  grid-collapse: true,   max-width: false,  columns: 3 ),
   md:     ( grid-columns: map-get(map-get($content-container, md),    columns),  grid-media: $media-md-only,  grid-collapse: true,   max-width: false,  columns: 2 ),
   lg:     ( grid-columns: map-get(map-get($content-container, lg),    columns),  grid-media: $media-lg-only,  grid-collapse: true,   max-width: false,  columns: 1 ),
   xl:     ( grid-columns: map-get(map-get($content-container, xl),    columns),  grid-media: $media-xl,       grid-collapse: true,   max-width: true,   columns: 1 ),
   print:  ( grid-columns: map-get(map-get($content-container, print), columns),  grid-media: $media-print,    grid-collapse: true,   max-width: false,  columns: 2 ),
+);
+
+$inset-content: ( // adjust-content-container
+  xs:     ( grid-columns: map-get(map-get($content-container, xs),    columns),  grid-media: $media-xs-only,  grid-collapse: false, max-width: false,  columns: -2 ),
+  sm:     ( grid-columns: map-get(map-get($content-container, sm),    columns),  grid-media: $media-sm-only,  grid-collapse: false, max-width: false,  columns: -1.5 ),
+  md:     ( grid-columns: map-get(map-get($content-container, md),    columns),  grid-media: $media-md-only,  grid-collapse: false, max-width: false,  columns: -1.5 ),
+  lg:     ( grid-columns: map-get(map-get($content-container, lg),    columns),  grid-media: $media-lg-only,  grid-collapse: false, max-width: false,  columns: -1 ),
+  xl:     ( grid-columns: map-get(map-get($content-container, xl),    columns),  grid-media: $media-xl,       grid-collapse: false, max-width: true,   columns: -3 ),
+  print:  ( grid-columns: map-get(map-get($content-container, print), columns),  grid-media: $media-print,    grid-collapse: false, max-width: false,  columns: -2 ),
 );
 
 $important-content: ( // adjust-content-container

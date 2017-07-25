@@ -2,6 +2,7 @@
 
 #resume {
   section {
+    @include responsive-container($content-container);
     h2 {
       text-align: left;
       font-size: modular-scale(1);

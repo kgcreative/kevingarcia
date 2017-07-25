@@ -9,16 +9,46 @@
     .project {
       figure {
         a {
-          position: initial;
-          display: initial;
-          overflow: hidden;
+          &.vertical {
+            @include ar-container(4, 3, vertical);
+          }
+          &.horizontal {
+            @include ar-container(4, 3, horizontal);
+          }
           &::after {
             content: null;
             display: none;
           }
+
+          #{$hocus} {
+            figcaption {
+              transition: bottom .25s ease-out;
+              bottom: 0;
+            }
+            img {
+              transform: translate3d(-50%, -50%, 0) scale(1.04);
+              transition: all .3s ease-in;
+            }
+          }
+
+          img {
+             top: 0;
+             left: 50%;
+             transform: translate3d(-50%, 0, 0) scale(1.0);
+             transition: all .3s ease-in;
+          }
         }
-        @include ar-container(4, 3, vertical);
-        @include anchor-image("top-center");
+      }
+
+      figcaption {
+        position: absolute;
+        height: auto;
+        padding: 1em;
+        bottom: -100%;
+        width: 100%;
+        background-color: tint(color(blue), 70%);
+        transition: bottom .25s ease-in;
+        box-shadow: material-shadow(-8);
       }
     }
   }

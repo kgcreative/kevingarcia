@@ -20,30 +20,8 @@ body > footer                                     {   order: 50;      }
 // ---------------------------------------------------------------------------------------------------------------------
 
 body {
-  @supports (display: flex) and (not (display: grid)) {
-    display: flex;
-  }
-  @supports (display: grid) {
-    display: grid;
-    grid-template-columns: unquote("[full-start] 1em [content-start] 1fr [content-end] 1em [full-end]");
-    grid-template-rows: unquote("[head-start] auto [content-start] 1fr [content-end] auto [footer-end]");
-
-    @include grid-media($media-md-max, $media-lg-only, $media-xl, $media-print) {
-      $_gutter: _retrieve-neat-setting($neat-grid, gutter);
-      grid-column-gap: $_gutter;
-      grid-row-gap: $_gutter * 2;
-    }
-
-    @include grid-media($media-lg) {
-      grid-template-columns: unquote("[full-start] auto [content-start] 1fr [content-end] auto [full-end]");
-    }
-
-    @media print {
-      grid-template-columns: unquote("[full-start] .25in [content-start] 1fr [content-end] .25in [full-end]");
-      max-width: none;
-    }
-
-  }
+  display: flex;
+  min-height: 100vh;
 
   @media print {
     margin: 0 .25in 1in;
@@ -51,38 +29,22 @@ body {
 }
 
 body > header {
-  @supports (display: grid) {
-    grid-column-start: full-start;
-    grid-column-end: full-end;
-    grid-row-start: head-start;
-    grid-row-end: content-start;
-
-    @media print {
-      padding-bottom: .125in;
-      grid-column-start: content-start;
-      grid-column-end: content-end;
-    }
+  @media print {
+    padding-bottom: .125in;
   }
+
   padding-top: 1em;
   :last-child {
     margin-bottom: 0;
   }
 }
 
-
 body > main {
-  @include responsive-container($content-container);
-
-  @supports (display: grid) {
-    padding-left: 0;
-    padding-right: 0;
-    grid-column-start: content-start;
-    grid-column-end: content-end;
-    grid-row-start: content-start;
-    grid-row-end: content-end;
-    justify-self: center;
-    max-width: 45em;
-    width: 100%;
+  width: 100%;
+  @include grid-media($media-md-max, $media-lg-only, $media-xl, $media-print) {
+    $_gutter: _retrieve-neat-setting($neat-grid, gutter);
+    padding-top: $_gutter * 2;
+    padding-bottom: $_gutter * 2;
   }
 
   @media print {
@@ -91,13 +53,6 @@ body > main {
 }
 
 body > footer {
-  @supports (display: grid) {
-    grid-column-start: full-start;
-    grid-column-end: full-end;
-    grid-row-start: content-end;
-    grid-row-end: footer-end;
-  }
-
   @media print {
     display: none;
   }
