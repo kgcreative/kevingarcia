@@ -5,7 +5,8 @@
     max-width: none;
   }
   section {
-    @include flex-items-per-row(3, $children: '.project');
+    @include responsive-container($collapsed-full-container);
+    @include flex-items-per-row(3, $children: '.project', $grid-collapse: null);
     .project {
       figure {
         a {
@@ -46,7 +47,8 @@
         padding: 1em;
         bottom: -100%;
         width: 100%;
-        background-color: tint(color(blue), 70%);
+        background-color: tint(color(text), 10%);
+        color: color(reverse-text);
         transition: bottom .25s ease-in;
         box-shadow: material-shadow(-8);
       }

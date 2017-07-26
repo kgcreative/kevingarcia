@@ -9,12 +9,13 @@
 @import
   'utilities/variables/global-settings'
 , 'utilities/decanter-utilities'
-, 'utilities/variables/variables'
+, 'utilities/functions/_material-shadow.scss'
 ,	'utilities/mixins/responsive-flex-items-per-row'
 ,	'utilities/mixins/adjust-responsive-container'
-,	'utilities/mixins/ar-container'
+, 'utilities/mixins/aspect-ratio-container'
 ,	'utilities/mixins/bg-img'
 ,	'utilities/mixins/img-effects'
+, 'utilities/variables/variables'
 ;
 
 // 2. Base
