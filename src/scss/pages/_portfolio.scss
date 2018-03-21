@@ -9,7 +9,11 @@
     @include flex-items-per-row(3, $children: '.project', $grid-collapse: null);
     .project {
       figure {
+
         a {
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
+
           &.vertical {
             @include ar-container(4, 3, vertical);
           }

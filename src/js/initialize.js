@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
   // Conditional Breakpoint helper
   if ((window.location.hostname.indexOf("localhost") > -1)) {
     let body = document.querySelector('body');
@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
       body.classList.add('bp-helper');
     else
       body.className += ' ' + 'bp-helper';
+
+    console.log('%c ✔ breakpoint helper', 'color: green');
   }
 
-  console.log('Initialized app');
+  console.log('%c ✔ Initialized app', 'color: green');
 });

@@ -1,6 +1,15 @@
 @charset "UTF-8";
 
 #resume {
+  $content-container: (
+    xs:     ( columns: 12,  grid-media: $media-xs-only, v-space: null, max-width: false, grid-collapse: false ),
+    sm:     ( columns: 12,  grid-media: $media-sm-only, v-space: null, max-width: false, grid-collapse: false ),
+    md:     ( columns: 10,   grid-media: $media-md-only, v-space: null, max-width: false, grid-collapse: false ),
+    lg:     ( columns: 9, grid-media: $media-lg-only, v-space: null, max-width: false, grid-collapse: false ),
+    xl:     ( columns: 8,   grid-media: $media-xl,      v-space: null, max-width: true,  grid-collapse: false ),
+    print:  ( columns: 9,   grid-media: $media-print,   v-space: null, max-width: false, grid-collapse: false ),
+  );
+
   section {
     @include responsive-container($content-container);
     h2 {

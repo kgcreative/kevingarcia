@@ -3,28 +3,35 @@ path = require 'path'
 exports.config =
 # See http://brunch.io for documentation.
   npm:
-    enabled: true
-# register $ and jQuery as a global so vendor plugins can run
-#    globals:
-#      '$': 'jquery'
-#      'jQuery': 'jquery'
+    enabled: false
+    # register $ and jQuery as a global so vendor plugins can run
+    # globals:
+    #      '$': 'jquery'
+    #      'jQuery': 'jquery'
+
+  paths:
+    watched: ['src']
+    public: 'public'
+
+  overrides:
+    production:
+      sourceMaps: true
+      paths:
+        public: 'deploy'
 
   files:
     javascripts:
       joinTo:
         # all BUT app code - 'vendor/', 'node_modules/', etc
-        'js/vendor.js': /(?!app)/
-        # all code from 'app/'
-        'js/app.js': /app/
+        'js/vendor.js': /(?!src)/
+        # all code from 'src/'
+        'js/app.js': /^src/
 
     stylesheets: joinTo: 'css/style.css'
 
-  overrides:
-    production:
-      paths:
-        public: 'deploy'
-
   plugins:
+    # optimize: on
+
     coffeescript:
       bare: true
 
@@ -50,17 +57,18 @@ exports.config =
       sourceMapEmbed: true
 # Set the precision for arithmetic operations.
       precision: 10
-      allowCache: true
 
     postcss:
-      map: true
-      processors:
+      processors: [
         require('autoprefixer')(['last 8 versions'])
+      ]
 
     static:
       pathTransform: (f) -> path.relative 'pages', f
       processors: [
         require('html-brunch-static') {
+          partials: /partials?/,
+          layouts: /layouts?/,
           handlebars:
             enableProcessor: true,
             helpers: {

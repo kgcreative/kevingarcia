@@ -23,11 +23,11 @@ site-name: Kevin Garcia
 
 _options:
   partials:
-    - app/partials/analytics.static.hbs
-    - app/partials/head.static.hbs
-    - app/partials/header.static.hbs
-    - app/partials/nav.static.hbs
-    - app/partials/footer.static.hbs
+    - src/partials/analytics.static.hbs
+    - src/partials/head.static.hbs
+    - src/partials/header.static.hbs
+    - src/partials/nav.static.hbs
+    - src/partials/footer.static.hbs
 
 analytics-id: UA-7149007-9
 ---
@@ -49,7 +49,6 @@ analytics-id: UA-7149007-9
     {{>footer}}
   </footer>
   <script src="/js/vendor.js"></script>
-  <script src="/js/app.js"></script>
-  <script>require('initialize');</script>
+  <script src="/js/app.js" onload="require('src/js/initialize.js');"></script>
 </body>
 </html>
