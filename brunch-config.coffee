@@ -3,7 +3,7 @@ path = require 'path'
 exports.config =
 # See http://brunch.io for documentation.
   npm:
-    enabled: false
+    enabled: true
     # register $ and jQuery as a global so vendor plugins can run
     # globals:
     #      '$': 'jquery'
@@ -70,7 +70,7 @@ exports.config =
           partials: /partials?/,
           layouts: /layouts?/,
           handlebars:
-            enableProcessor: true,
+            enableProcessor: false,
             helpers: {
               ifEq:      (a,b,opts) -> if a is b then opts.fn(this) else opts.inverse(this)
               ifEqDebug: (a,b,opts) -> console.log "a: '" + a + "'"; console.log "b: '" + b + "'"; if a is b then opts.fn(this) else opts.inverse(this)
