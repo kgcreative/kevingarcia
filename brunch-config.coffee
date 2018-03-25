@@ -70,7 +70,7 @@ exports.config =
           partials: /partials?/,
           layouts: /layouts?/,
           handlebars:
-            enableProcessor: false,
+            enableProcessor: true,
             helpers: {
               ifEq:      (a,b,opts) -> if a is b then opts.fn(this) else opts.inverse(this)
               ifEqDebug: (a,b,opts) -> console.log "a: '" + a + "'"; console.log "b: '" + b + "'"; if a is b then opts.fn(this) else opts.inverse(this)
