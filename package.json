@@ -14,7 +14,8 @@
     "prod": "brunch build --production"
   },
   "dependencies": {
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "npm": "^5.8.0"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.7.1",
