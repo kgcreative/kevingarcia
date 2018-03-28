@@ -10,12 +10,7 @@
   },
   "scripts": {
     "start": "brunch watch --server --port 3334",
-    "build": "brunch build",
-    "prod": "brunch build --production"
-  },
-  "dependencies": {
-    "jquery": "^3.3.1",
-    "npm": "^5.8.0"
+    "build": "brunch build --production"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.7.1",
