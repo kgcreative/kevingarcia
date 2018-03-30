@@ -5,9 +5,9 @@ exports.config =
   npm:
     enabled: true
     # register $ and jQuery as a global so vendor plugins can run
-    # globals:
-    #      '$': 'jquery'
-    #      'jQuery': 'jquery'
+    globals:
+      '$': 'jquery'
+      'jQuery': 'jquery'
 
   paths:
     watched: ['src']

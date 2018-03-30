@@ -1,16 +1,54 @@
 
 @charset 'UTF-8';
 
-body header > nav {
-  @include grid-media($media-sm-max) {
+#menu-toggle {
+  display: block;
+  float: right;
+  margin-right: _retrieve-neat-setting($neat-grid, gutter);
+  padding: 0 .25em;
+  background-color: color(background);
+  color: color(text);
+  box-shadow: none;
+
+  &:focus {
+    outline: tint(color(blue), 80%);
+    background-color: tint(color(blue), 80%);
+  }
+
+  @include grid-media($media-md, $media-print) {
     display: none;
   }
+}
+
+#primary-nav {
   display: inline-block;
   width: calc(100% - 11em);
   text-align: right;
   float: right;
 
-  @include grid-media($media-md-max, $media-lg-only, $media-xl, $media-print) {
+  @include grid-media($media-sm-max) {
+    display: none;
+
+    &.open {
+      display: block;
+      position: relative;
+      width: 100%;
+
+      ul {
+        position: absolute;
+        top: .25em;
+        right: .125em;
+        background: color(background);
+        border: 1px solid $primary-nav_border-color;
+        border-top: 4px solid $primary-nav_border-color;
+        padding-right: _retrieve-neat-setting($neat-grid, gutter);
+        z-index: -1;
+        box-shadow: material-shadow(flat);
+      }
+    }
+  }
+
+  @include grid-media($media-md-max, $media-lg-only, $media-xl) {
     padding-right: _retrieve-neat-setting($neat-grid, gutter);
   }
 
@@ -33,6 +71,51 @@ body header > nav {
       margin-right: 1em;
       position: relative;
       white-space: nowrap;
+
+      @at-root .open#{&} {
+        @include grid-media($media-sm-max) {
+          display: block;
+          text-align: right;
+
+          &.current {
+            a {
+              &::before {
+                width: .125em;
+                height: 100%;
+              }
+            }
+          }
+
+          a {
+            &::before {
+              left: calc(100% + .5em);
+              top: 50%;
+              bottom: 0;
+              width: .125em;
+              height: 0;
+              transform: translateY(-50%);
+              z-index: -1;
+              background-color: tint(color(blue), 80%);
+            }
+
+            &:focus {
+              outline: tint(color(blue), 80%);
+            }
+            &:hover, &:active {
+              &::before {
+                height: 100%;
+              }
+            }
+            &:focus {
+              &::before {
+                height: 100%;
+                left: -.5em;
+                width: calc(100% + 1em);
+              }
+            }
+          }
+        }
+      }
 
       &.current {
         font-weight:700;

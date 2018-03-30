@@ -1,6 +1,8 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function() {
+
+  require('./a11yNav');
   // Conditional Breakpoint helper
   if ((window.location.hostname.indexOf("localhost") > -1)) {
     let body = document.querySelector('body');

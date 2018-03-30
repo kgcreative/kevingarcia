@@ -17,7 +17,7 @@ body {
   }
 
   @include grid-media($media-print) {
-    font-size: em(12px, $_root-font-size);
+    font-size: em(10px, $_root-font-size);
   }
 }
 
@@ -164,7 +164,12 @@ main a {
       display: none;
     }
   }
-  #{$pocus} {
+
+  &:focus {
+    outline: none;
+  }
+
+  #{$hocus} {
     &::after {
       height: em(33px);
       background-color: tint(color(blue), 80%);
@@ -183,6 +188,10 @@ main a {
 header {
   a {
     position: relative;
+
+    &:focus {
+      outline: tint(color(blue), 80%);
+    }
     &::before {
       content: '';
       position: absolute;

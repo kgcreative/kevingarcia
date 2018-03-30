@@ -126,3 +126,32 @@ $media-print: (
   gutter: .25in,
   media: 'only print',
 );
+
+body::before {
+  display: none;
+  content: "unknown";
+
+  @media screen {
+    content: "screen";
+  }
+
+  @media print {
+    content: "print";
+  }
+
+  @include grid-media($media-xs-only) {
+    content: "xs";
+  }
+  @include grid-media($media-sm-only) {
+    content: "sm";
+  }
+  @include grid-media($media-md-only) {
+    content: "md";
+  }
+  @include grid-media($media-lg-only) {
+    content: "lg";
+  }
+  @include grid-media($media-xl) {
+    content: "xl";
+  }
+}

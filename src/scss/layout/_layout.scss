@@ -37,11 +37,23 @@ body > header {
   :last-child {
     margin-bottom: 0;
   }
+
+  @include grid-media($media-sm-max) {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 }
 
 body > main {
   width: 100%;
-  @include grid-media($media-md-max, $media-lg-only, $media-xl, $media-print) {
+
+  @include grid-media($media-sm-max) {
+    $_gutter: _retrieve-neat-setting($neat-grid, gutter);
+    padding-top: $_gutter * 4;
+    padding-bottom: $_gutter * 2;
+  }
+  @include grid-media($media-md-only, $media-lg-only, $media-xl, $media-print) {
     $_gutter: _retrieve-neat-setting($neat-grid, gutter);
     padding-top: $_gutter * 2;
     padding-bottom: $_gutter * 2;
@@ -57,13 +69,8 @@ body > footer {
     display: none;
   }
 }
-
 #breakpoint-helper {
   @media print {
-    display: none;
-    box-shadow: none;
-    &::after {
-      display: none;
-    }
+    display: none!important;
   }
 }

@@ -7,7 +7,7 @@
     md:     ( columns: 10,   grid-media: $media-md-only, v-space: null, max-width: false, grid-collapse: false ),
     lg:     ( columns: 9, grid-media: $media-lg-only, v-space: null, max-width: false, grid-collapse: false ),
     xl:     ( columns: 8,   grid-media: $media-xl,      v-space: null, max-width: true,  grid-collapse: false ),
-    print:  ( columns: 9,   grid-media: $media-print,   v-space: null, max-width: false, grid-collapse: false ),
+    print:  ( columns: 12,   grid-media: $media-print,   v-space: null, max-width: false, grid-collapse: false ),
   );
 
   section {
@@ -15,22 +15,27 @@
     h2 {
       text-align: left;
       font-size: modular-scale(1);
-      margin-bottom: 1.5em;
+      margin-bottom: 0;
       padding-bottom: .5em;
       margin-top: modular-scale(1);
-      border-bottom: 1px solid color(grey);
+      // border-bottom: 1px solid color(grey);
     }
 
     hr {
-      &:last-of-type {
-        visibility: hidden;
-      }
+      page-break-before: auto;
+      page-break-after: avoid;
+      grid-column-start: meta-start;
+      grid-column-end: details-end;
     }
   }
 
   .job, .school {
     @include grid-container;
     @include grid-collapse;
+
+    @media print {
+      page-break-inside: avoid;
+    }
 
     :last-child {
       margin-bottom: 0;
