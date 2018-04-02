@@ -6,7 +6,19 @@
   }
   section {
     @include responsive-container($collapsed-full-container);
-    @include flex-items-per-row(3, $children: '.project', $grid-collapse: null);
+
+    @include grid-media($media-xs-only) {
+        @include flex-items-per-row(1, $children: '.project', $grid-collapse: null);
+    }
+    @include grid-media($media-sm-only) {
+        @include flex-items-per-row(2, $children: '.project', $grid-collapse: null);
+    }
+    @include grid-media($media-md) {
+      @include flex-items-per-row(3, $children: '.project', $grid-collapse: null);
+    }
+    @include grid-media($media-lg) {
+      @include flex-items-per-row(4, $children: '.project', $grid-collapse: null);
+    }
     .project {
       figure {
 
